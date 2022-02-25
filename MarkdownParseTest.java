@@ -92,6 +92,9 @@ public class MarkdownParseTest {
 	    String contents = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(contents);
         ArrayList<String> expected = new ArrayList<String>();
+        expected.add("url.com");
+        expected.add("`google.com");
+        expected.add("google.com");
         assertEquals(expected,links);
     }
 
@@ -101,6 +104,9 @@ public class MarkdownParseTest {
 	    String contents = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(contents);
         ArrayList<String> expected = new ArrayList<String>();
+        expected.add("a.com");
+        expected.add("a.com(())");
+        expected.add("example.com");
         assertEquals(expected,links);
     }
 
@@ -110,6 +116,7 @@ public class MarkdownParseTest {
 	    String contents = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(contents);
         ArrayList<String> expected = new ArrayList<String>();
+        expected.add("https://ucsd-cse15l-w22.github.io/");
         assertEquals(expected,links);
     }
 }
